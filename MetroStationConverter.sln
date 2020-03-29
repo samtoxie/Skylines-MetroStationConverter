@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{a9a6cff4-efe4-4627-bde8-1d6ee8e02b19}") = "MetroStationConverter", "MetroStationConverter\MetroStationConverter.csproj", "{192c813b-9eb9-4790-aebb-1fd5411ddbe0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{192c813b-9eb9-4790-aebb-1fd5411ddbe0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192c813b-9eb9-4790-aebb-1fd5411ddbe0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192c813b-9eb9-4790-aebb-1fd5411ddbe0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192c813b-9eb9-4790-aebb-1fd5411ddbe0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
