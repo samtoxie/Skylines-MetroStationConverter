@@ -110,14 +110,14 @@ namespace MetroStationConverter
                 return true;
             }
 
-            var metroTrack = FindMetroTrack("Metro Track Ground 01");
-            var metroTrackElevated = FindMetroTrack("Metro Track Elevated 01");
-            var metroTrackSlope = FindMetroTrack("Metro Track Slope 01");
-            var metroTrackTunnel = FindMetroTrack("Metro Track");
+            var metroTrack = FindMetroTrack("Tram Track");
+            var metroTrackElevated = FindMetroTrack("Tram Track");
+            var metroTrackSlope = FindMetroTrack("Tram Track");
+            var metroTrackTunnel = FindMetroTrack("Tram Track");
 
-            var metroStationTrack = FindMetroTrack("Metro Station Track Ground 01");
-            var metroStationTrackElevated = FindMetroTrack("Metro Station Track Elevated 01");
-            var metroStationTrackTunnel = FindMetroTrack("Metro Station Track");
+            var metroStationTrack = FindMetroTrack("Tram Station Track");
+            var metroStationTrackElevated = FindMetroTrack("Tram Station Track");
+            var metroStationTrackTunnel = FindMetroTrack("Tram Station Track");
 
             var hubPathIndices = Util.CommaSeparatedStringToIntArray(item2.PartialConversion);
             for (var i = 0; i < info.m_paths.Length; i++)
