@@ -15,8 +15,8 @@ namespace TramStationConverter
 {
     public class Mod : IUserMod
     {
-        public string Name => "Metro Station Converter";
-        public string Description => "Converts tram-train and metro-train stations to actual metro stations";
+        public string Name => "Tram Station Converter";
+        public string Description => "Converts tram-train and metro-train stations to actual tram stations";
 
         public void OnSettingsUI(UIHelperBase helper)
         {

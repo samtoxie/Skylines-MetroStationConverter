@@ -90,7 +90,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutDir)/MetroStationConverter.dll" DestinationFolder="$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(TargetName)" />
+    <Copy SourceFiles="$(OutDir)TramStationConverter.dll" DestinationFolder="$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(TargetName)" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
