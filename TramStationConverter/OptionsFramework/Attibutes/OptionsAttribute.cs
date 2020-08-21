@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MetroStationConverter.OptionsFramework.Attibutes
+namespace TramStationConverter.OptionsFramework.Attibutes
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public class OptionsAttribute : Attribute

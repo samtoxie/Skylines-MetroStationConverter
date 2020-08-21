@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
-using MetroStationConverter.OptionsFramework.Attibutes;
+using TramStationConverter.OptionsFramework.Attibutes;
 
-namespace MetroStationConverter
+namespace TramStationConverter
 {
     [Options("MetroStationConverter-Options")]
     public class Options

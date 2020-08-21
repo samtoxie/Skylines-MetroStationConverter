@@ -1,6 +1,6 @@
-﻿using MetroStationConverter.OptionsFramework.Attibutes;
+﻿using TramStationConverter.OptionsFramework.Attibutes;
 
-namespace MetroStationConverter.OptionsFramework.Extensions
+namespace TramStationConverter.OptionsFramework.Extensions
 {
     public static class CommonExtensions
     {

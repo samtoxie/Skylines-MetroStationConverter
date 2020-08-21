@@ -4,14 +4,14 @@ using System.Linq;
 #endif
 using ColossalFramework.UI;
 using ICities;
-using MetroStationConverter.OptionsFramework;
 using UnityEngine;
 #if DEBUG
 using MetroStationConverter.Config;
 #endif
-using MetroStationConverter.OptionsFramework.Extensions;
+using TramStationConverter.OptionsFramework.Extensions;
+using TramStationConverter.OptionsFramework;
 
-namespace MetroStationConverter
+namespace TramStationConverter
 {
     public class Mod : IUserMod
     {

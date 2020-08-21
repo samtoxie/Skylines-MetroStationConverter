@@ -5,10 +5,10 @@ using System.Linq;
 using System.Reflection;
 using ColossalFramework.UI;
 using ICities;
-using MetroStationConverter.OptionsFramework.Attibutes;
+using TramStationConverter.OptionsFramework.Attibutes;
 using UnityEngine;
 
-namespace MetroStationConverter.OptionsFramework.Extensions
+namespace TramStationConverter.OptionsFramework.Extensions
 {
     public static class UIHelperBaseExtensions
     {

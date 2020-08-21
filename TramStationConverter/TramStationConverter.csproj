@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VehicleConverter</RootNamespace>
-    <AssemblyName>MetroStationConverter</AssemblyName>
+    <AssemblyName>TramStationConverter</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <Compile Include="OptionsFramework\OptionsWrapper.cs" />
     <Compile Include="OptionsFramework\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrainStationToMetroStation.cs" />
+    <Compile Include="TrainStationToTramStation.cs" />
     <Compile Include="Tuple.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>

@@ -3,12 +3,12 @@ using System.Collections;
 using System.Linq;
 using System.Reflection;
 using ColossalFramework.PlatformServices;
-using MetroStationConverter.Config;
+using TramStationConverter.Config;
 using UnityEngine;
 
-namespace MetroStationConverter
+namespace TramStationConverter
 {
-    public static class TrainStationToMetroStation
+    public static class TrainStationToTramStation
     {
         private static readonly FieldInfo _uiCategoryfield =
             typeof(PrefabInfo).GetField("m_UICategory", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -21,7 +21,7 @@ namespace MetroStationConverter
                 return false;
             }
 
-            UnityEngine.Debug.Log("Metro Station Converter: Converting " + info.name);
+            UnityEngine.Debug.Log("Tram Station Converter: Converting " + info.name);
             var metroEntrance = PrefabCollection<BuildingInfo>.FindLoaded("Metro Entrance");
             var ai = info.GetComponent<PlayerBuildingAI>();
             if (ai == null)
@@ -35,13 +35,13 @@ namespace MetroStationConverter
                 var item = Stations.GetItem(id);
                 if (stationAi.m_transportInfo == PrefabCollection<TransportInfo>.FindLoaded("Metro"))
                 {
-                    UnityEngine.Debug.LogWarning("Metro Station Converter: " + id + ": already a metro station, no conversion applied.");
+                    UnityEngine.Debug.LogWarning("Tram Station Converter: " + id + ": already a Tram station, no conversion applied.");
                     return true; //already a metro station
                 }
 
                 if (item == null)
                 {
-                    UnityEngine.Debug.LogWarning("Metro Station Converter: Configuration for station " + id + " not found!");
+                    UnityEngine.Debug.LogWarning("Tram Station Converter: Configuration for station " + id + " not found!");
                     return false;
                 }
 
@@ -111,13 +111,23 @@ namespace MetroStationConverter
             }
 
             var metroTrack = FindMetroTrack("Tram Track");
-            var metroTrackElevated = FindMetroTrack("Tram Track");
+            var metroTrackElevated = FindMetroTrack("Tram Track Elevated");
             var metroTrackSlope = FindMetroTrack("Tram Track");
-            var metroTrackTunnel = FindMetroTrack("Tram Track");
+            var metroTrackTunnel = FindMetroTrack("Tram Track Tunnel");
 
-            var metroStationTrack = FindMetroTrack("Tram Station Track");
-            var metroStationTrackElevated = FindMetroTrack("Tram Station Track");
-            var metroStationTrackTunnel = FindMetroTrack("Tram Station Track");
+            var TramTrackStation = FindMetroTrack("Tram Track");
+            UpdatePedestrianLanes(TramTrackStation);
+            RemoveStreetLights(TramTrackStation);
+            
+            var TramTrackStationElevated = FindMetroTrack("Tram Track Elevated");
+            UpdatePedestrianLanes(TramTrackStationElevated);
+            RemoveStreetLights(TramTrackStationElevated);
+            
+            var TramTrackStationTunnel = FindMetroTrack("Tram Track Tunnel");
+            UpdatePedestrianLanes(TramTrackStationTunnel);
+            RemoveStreetLights(TramTrackStationTunnel);
+            
+            
 
             var hubPathIndices = Util.CommaSeparatedStringToIntArray(item2.PartialConversion);
             for (var i = 0; i < info.m_paths.Length; i++)
@@ -157,19 +167,19 @@ namespace MetroStationConverter
                 
                 if (path.m_netInfo.name.Contains("Train Station Track Tunnel"))
                 {
-                    path.m_netInfo = metroStationTrackTunnel;
+                    path.m_netInfo = TramTrackStationTunnel;
                     continue;
                 }
 
                 if (!path.m_netInfo.name.Contains("Metro") && path.m_netInfo.name.Contains("Station Track Eleva"))
                 {
-                    path.m_netInfo = metroStationTrackElevated;
+                    path.m_netInfo = TramTrackStationElevated;
                     continue;
                 }
 
                 if (path.m_netInfo.name.Contains("Train Station Track"))
                 {
-                    path.m_netInfo = metroStationTrack;
+                    path.m_netInfo = TramTrackStation;
                     continue;
                 }
 
@@ -193,6 +203,52 @@ namespace MetroStationConverter
                 throw new Exception($"Metro Station Converter didn't find asset {trackName}.");
             }
             return result;
+        }
+        
+        public static void RemoveStreetLights(NetInfo prefab)
+        {
+            if (prefab == null || prefab.m_lanes == null)
+            {
+                return;
+            }
+            foreach (var lane in prefab.m_lanes)
+            {
+                var mLaneProps = lane.m_laneProps;
+                if (mLaneProps == null)
+                {
+                    continue;
+                }
+                var props = mLaneProps.m_props;
+                if (props == null)
+                {
+                    continue;
+                }
+                lane.m_laneProps = new NetLaneProps
+                {
+                    m_props = (from prop in props
+                        where prop != null
+                        let mProp = prop.m_prop
+                        where mProp != null
+                        where !mProp.name.Contains("Light")
+                        select prop).ToArray()
+                };
+            }
+        }
+        
+        public static void UpdatePedestrianLanes(NetInfo prefab)
+        {
+            if (prefab == null || prefab.m_lanes == null)
+            {
+                return;
+            }
+            foreach (var lane in prefab.m_lanes.Where(lane => lane != null && lane.m_laneType == NetInfo.LaneType.Pedestrian))
+            {
+                lane.m_verticalOffset = 0.60f;
+                lane.m_allowConnect = true;
+                lane.m_useTerrainHeight = false;
+                lane.m_direction = NetInfo.Direction.AvoidForward;
+                lane.m_finalDirection = NetInfo.Direction.AvoidForward;
+            }
         }
     }
 }

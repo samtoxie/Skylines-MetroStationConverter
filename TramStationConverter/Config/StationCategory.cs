@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MetroStationConverter.Config
+namespace TramStationConverter.Config
 {
     [Flags]
     public enum StationCategory

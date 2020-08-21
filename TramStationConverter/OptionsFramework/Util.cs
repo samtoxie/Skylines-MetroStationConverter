@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace MetroStationConverter.OptionsFramework
+namespace TramStationConverter.OptionsFramework
 {
     internal class Util
     {

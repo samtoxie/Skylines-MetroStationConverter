@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MetroStationConverter.OptionsFramework.Attibutes
+namespace TramStationConverter.OptionsFramework.Attibutes
 {
     public abstract class AbstractOptionsAttribute : Attribute
     {

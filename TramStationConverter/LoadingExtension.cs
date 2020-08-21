@@ -1,22 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using ColossalFramework;
+using ColossalFramework.Plugins;
 using ColossalFramework.UI;
 using ICities;
-using MetroStationConverter.OptionsFramework;
 using PrefabHook;
 using UnityEngine;
-using MetroStationConverter.Config;
+using TramStationConverter.Config;
+using TramStationConverter.OptionsFramework;
 
-namespace MetroStationConverter
+namespace TramStationConverter
 {
     public class LoadingExtension : LoadingExtensionBase
     {
         public override void OnCreated(ILoading loading)
         {
             base.OnCreated(loading);
+            
+            string outputPath = @"/home/samtoxie/Documents/prefabs.txt";
+            using (StreamWriter sw = File.AppendText(outputPath))
+            {
+                for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); ++i) {
+                    string name = PrefabCollection<NetInfo>.PrefabName(i);
+                    sw.WriteLine(i + ":" + name);
+                }
+            }	
+            for (uint i = 0; i < PrefabCollection<NetInfo>.PrefabCount(); ++i) {
+                string name = PrefabCollection<NetInfo>.PrefabName(i);
+                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, i + ":" + name);
+            }
+
             Cache.Reset();
             if (!IsHooked())
             {
@@ -29,7 +45,7 @@ namespace MetroStationConverter
                 {
                     try
                     {
-                        TrainStationToMetroStation.Convert(info);
+                        TrainStationToTramStation.Convert(info);
                     }
                     catch (Exception e)
                     {

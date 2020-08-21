@@ -1,4 +1,4 @@
-﻿namespace MetroStationConverter
+﻿namespace TramStationConverter
 {
     public class Tuple<T1, T2>
     {

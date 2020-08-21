@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{a9a6cff4-efe4-4627-bde8-1d6ee8e02b19}") = "MetroStationConverter", "MetroStationConverter\MetroStationConverter.csproj", "{192c813b-9eb9-4790-aebb-1fd5411ddbe0}"
+Project("{A9A6CFF4-EFE4-4627-BDE8-1D6EE8E02B19}") = "TramStationConverter", "TramStationConverter\TramStationConverter.csproj", "{192C813B-9EB9-4790-AEBB-1FD5411DDBE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

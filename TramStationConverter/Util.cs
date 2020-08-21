@@ -9,7 +9,7 @@ using ColossalFramework.UI;
 using ICities;
 using UnityEngine;
 
-namespace MetroStationConverter
+namespace TramStationConverter
 {
     public static class Util
     {

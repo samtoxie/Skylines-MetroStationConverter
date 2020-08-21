@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using ColossalFramework.UI;
-using MetroStationConverter.OptionsFramework;
+using TramStationConverter.OptionsFramework;
 
-namespace MetroStationConverter.Config
+namespace TramStationConverter.Config
 {
     public static class Stations
     {

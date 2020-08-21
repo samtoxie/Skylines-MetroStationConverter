@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MetroStationConverter.OptionsFramework.Attibutes
+namespace TramStationConverter.OptionsFramework.Attibutes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class TextfieldAttribute : AbstractOptionsAttribute

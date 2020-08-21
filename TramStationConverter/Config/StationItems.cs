@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace MetroStationConverter.Config
+namespace TramStationConverter.Config
 {
     [Serializable]
     public class StationItems

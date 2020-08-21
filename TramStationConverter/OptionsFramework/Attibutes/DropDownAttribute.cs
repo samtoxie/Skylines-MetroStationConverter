@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace MetroStationConverter.OptionsFramework.Attibutes
+namespace TramStationConverter.OptionsFramework.Attibutes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class DropDownAttribute : AbstractOptionsAttribute

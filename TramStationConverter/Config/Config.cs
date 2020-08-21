@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Xml.Serialization;
-using MetroStationConverter.OptionsFramework.Attibutes;
+using TramStationConverter.OptionsFramework.Attibutes;
 
-namespace MetroStationConverter.Config
+namespace TramStationConverter.Config
 {
     [Options("MetroStationConverter-Config")]
     public class Config

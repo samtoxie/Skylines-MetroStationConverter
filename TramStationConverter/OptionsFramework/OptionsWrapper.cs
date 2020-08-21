@@ -3,10 +3,10 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using ColossalFramework.IO;
-using MetroStationConverter.OptionsFramework.Attibutes;
+using TramStationConverter.OptionsFramework.Attibutes;
 using UnityEngine;
 
-namespace MetroStationConverter.OptionsFramework
+namespace TramStationConverter.OptionsFramework
 {
     public class OptionsWrapper<T>
     {
